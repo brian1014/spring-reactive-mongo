@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringReactiveMongoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+    <module name="spring-reactive-mongo" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="guru.springframework.springreactivemongo.SpringReactiveMongoApplication" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="guru.springframework.springreactivemongo.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
