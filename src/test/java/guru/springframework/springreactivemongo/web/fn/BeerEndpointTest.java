@@ -21,6 +21,8 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+import static org.hamcrest.core.Is.is;
+
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
@@ -172,7 +174,7 @@ class BeerEndpointTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().valueEquals("Content-type", "application/json")
-                .expectBody().jsonPath("$.size()");
+                .expectBody().jsonPath("$.size()").isEqualTo(1);
     }
 
     @Test
@@ -182,7 +184,7 @@ class BeerEndpointTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectHeader().valueEquals("Content-type", "application/json")
-                .expectBody().jsonPath("$.size()");
+                .expectBody().jsonPath("$.size()").isEqualTo(5);
     }
 
     public BeerDTO getSavedTestBeer(){
