@@ -5,6 +5,7 @@ import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
@@ -14,6 +15,9 @@ import java.util.List;
 
 @Configuration
 public class MongoConfig extends AbstractReactiveMongoConfiguration {
+
+    @Value("${sfg.mogohost}")
+    private String mongoHost;
 
     @Bean
     public MongoClient mongoClient() {
@@ -31,6 +35,6 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
                         .createCredential("root", "admin", "password".toCharArray()))
                 .applyToClusterSettings(settings ->
                         settings.hosts(
-                                Collections.singletonList(new ServerAddress("127.0.0.1", 27017))));
+                                Collections.singletonList(new ServerAddress(mongoHost, 27017))));
     }
 }
